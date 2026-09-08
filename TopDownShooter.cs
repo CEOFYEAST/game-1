@@ -26,7 +26,7 @@ public class TopDownShooter : Game
         _player = new(
             GraphicsDevice.Viewport.Bounds.Center.ToVector2()
         );
-        _mobManager = new();
+        _mobManager = new(GraphicsDevice);
         base.Initialize();
     }
 
@@ -41,6 +41,8 @@ public class TopDownShooter : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+
+        _mobManager.Update(gameTime, _player.Position);
 
         base.Update(gameTime);
     }

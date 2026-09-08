@@ -1,27 +1,30 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace game_1;
 
 public abstract class Agent
 {
-    protected Vector2 _position;
-
     protected Texture2D _texture;
 
     protected Agent(Vector2 initialPosition)
     {
-        _position = initialPosition;
+        Position = initialPosition;
     }
 
-    public abstract void LoadContent(ContentManager content);
+    // Centre of the sprite, in screen space.
+    public Vector2 Position { get; set; }
 
-    // protected void Update(GameTime gameTime)
-    // {
-    //     throw new NotImplementedException();
-    // }
+    // Size multiplier applied to the texture when drawing.
+    protected abstract float Scale { get; }
+
+    // How far the drawn sprite reaches from Position in any direction.
+    public float Radius =>
+        _texture is null ? 0f : MathF.Max(_texture.Width, _texture.Height) * Scale / 2f;
+
+    public abstract void LoadContent(ContentManager content);
 
     public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
 }

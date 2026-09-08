@@ -1,13 +1,14 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace game_1;
 
 public class Player : Agent
 {
     public Player(Vector2 initialPosition) : base(initialPosition) { }
+
+    protected override float Scale => 0.5f;
 
     public override void LoadContent(ContentManager content)
     {
@@ -23,12 +24,12 @@ public class Player : Agent
     {
         spriteBatch.Draw(
             texture: _texture,
-            position: _position,
+            position: Position,
             sourceRectangle: null,
             color: Color.White,
             rotation: 0f,
             origin: new Vector2(_texture.Width / 2f, _texture.Height / 2f),
-            scale: 0.5f,
+            scale: Scale,
             effects: SpriteEffects.None,
             layerDepth: 0f
         );
