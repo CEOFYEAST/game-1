@@ -43,18 +43,6 @@ public class TopDownShooter : Game
             Exit();
 
         _mobManager.Update(gameTime, _player.Position);
-
-        // Nothing consumes a hit yet, so a collision just tints the player.
-        _player.Color = Color.White;
-        foreach (Mob mob in _mobManager.Mobs)
-        {
-            if (mob.Bounds.CollidesWith(_player.Bounds))
-            {
-                _player.Color = Color.Red;
-                break;
-            }
-        }
-
         base.Update(gameTime);
     }
 
