@@ -6,19 +6,33 @@ namespace game_1;
 
 public class Player : Agent
 {
+    // Enemy touches a player survives; the third one kills them.
+    private const int MaxTouches = 3;
+
     public Player(Vector2 initialPosition) : base(initialPosition) { }
 
     protected override float Scale => 0.5f;
+
+    // Touches left before the player dies.
+    public int RemainingTouches { get; private set; } = MaxTouches;
+
+    public bool IsAlive => RemainingTouches > 0;
+
+    public void Touch()
+    {
+        if (RemainingTouches > 0) RemainingTouches--;
+    }
+
+    // Puts the player back to full health for a fresh run.
+    public void Revive()
+    {
+        RemainingTouches = MaxTouches;
+    }
 
     public override void LoadContent(ContentManager content)
     {
         _texture = content.Load<Texture2D>("PlayerPlaceholder");
     }
-
-    // protected void Update(GameTime gameTime)
-    // {
-    //     throw new NotImplementedException();
-    // }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {

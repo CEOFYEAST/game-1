@@ -33,6 +33,13 @@ public class MobManager
         _content = content;
     }
 
+    // Clears the field so a new run starts with no mobs left over from the last.
+    public void Reset()
+    {
+        _mobs.Clear();
+        _timeSinceLastSpawn = SpawnInterval;
+    }
+
     public void Update(GameTime gameTime, Vector2 playerPosition)
     {
         _timeSinceLastSpawn += (float)gameTime.ElapsedGameTime.TotalSeconds;
