@@ -24,7 +24,7 @@ public class Tick : Mob
             texture: _texture,
             position: Position,
             sourceRectangle: null,
-            color: Color.White,
+            color: Color,
             rotation: 0f,
             origin: new Vector2(_texture.Width / 2f, _texture.Height / 2f),
             scale: Scale,

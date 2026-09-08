@@ -21,6 +21,8 @@ public class MobManager
 
     private float _timeSinceLastSpawn = SpawnInterval;
 
+    public IReadOnlyList<Mob> Mobs => _mobs;
+
     public MobManager(GraphicsDevice graphicsDevice)
     {
         _graphicsDevice = graphicsDevice;
@@ -62,7 +64,7 @@ public class MobManager
 
         // The texture has to be loaded before we know how far off-screen to place it.
         mob.LoadContent(_content);
-        mob.Position = PointJustOffScreen(mob.Radius);
+        mob.Position = PointJustOffScreen(mob.DrawRadius);
 
         _mobs.Add(mob);
     }
