@@ -6,7 +6,10 @@ namespace game_1.Agents;
 
 public class Zombie : Mob
 {
-    public Zombie(Vector2 initialPosition) : base(initialPosition) { }
+    // Dies to a single hit for now; raise this for a tougher zombie.
+    private const int StartingHealth = 1;
+
+    public Zombie(Vector2 initialPosition) : base(initialPosition, StartingHealth) { }
 
     protected override float Scale => 0.25f;
 

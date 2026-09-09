@@ -6,7 +6,10 @@ namespace game_1.Agents;
 
 public class Tick : Mob
 {
-    public Tick(Vector2 initialPosition) : base(initialPosition) { }
+    // Dies to a single hit for now; raise this for a tougher tick.
+    private const int StartingHealth = 1;
+
+    public Tick(Vector2 initialPosition) : base(initialPosition, StartingHealth) { }
 
     protected override float Scale => 0.15f;
 
