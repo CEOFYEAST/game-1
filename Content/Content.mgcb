@@ -1,4 +1,4 @@
-
+﻿
 #----------------------------- Global Properties ----------------------------#
 
 /outputDir:bin/$(Platform)
@@ -26,13 +26,13 @@
 /processorParam:Version=3.8.5.1
 /build:EnemyPlaceholder.png
 
-#begin File.spritefont
+#begin Bangers.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /processorParam:Version=3.8.5.1
-/build:File.spritefont;Bangers.spritefont
+/build:Bangers.spritefont
 
 #begin PlayerPlaceholder.png
 /importer:TextureImporter

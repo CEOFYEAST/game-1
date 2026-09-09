@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace game_1;
+namespace game_1.Agents;
 
 public abstract class Mob : Agent
 {

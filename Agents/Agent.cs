@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using game_1.Collisions;
 
-namespace game_1;
+namespace game_1.Agents;
 
 public abstract class Agent
 {

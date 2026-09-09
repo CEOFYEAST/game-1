@@ -2,15 +2,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace game_1;
+namespace game_1.Agents;
 
-public class Zombie : Mob
+public class Tick : Mob
 {
-    public Zombie(Vector2 initialPosition) : base(initialPosition) { }
+    public Tick(Vector2 initialPosition) : base(initialPosition) { }
 
-    protected override float Scale => 0.25f;
+    protected override float Scale => 0.15f;
 
-    protected override float Speed => 60f;
+    // Ticks close in twice as fast as zombies.
+    protected override float Speed => 120f;
 
     public override void LoadContent(ContentManager content)
     {
