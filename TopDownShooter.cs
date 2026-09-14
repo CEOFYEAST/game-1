@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using game_1.Agents;
@@ -17,6 +17,7 @@ public class TopDownShooter : Game
     private const float PromptGap = 24f;
 
     private GraphicsDeviceManager _graphics;
+    
     private SpriteBatch _spriteBatch;
 
     private SpriteFont _font;

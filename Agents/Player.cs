@@ -77,15 +77,22 @@ public class Player : Agent
     public void Revive()
     {
         RemainingTouches = MaxTouches;
+        Melee.ClearStrike();
     }
 
     public override void LoadContent(ContentManager content)
     {
         _texture = content.Load<Texture2D>("PlayerPlaceholder");
+        Melee.LoadContent(content);
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
+        // Under the player, so the swing never hides who is swinging it. Only
+        // while alive: once the run ends nothing ticks the swing's timer, so a
+        // dying blow would otherwise sit on screen behind the game over prompt.
+        if (IsAlive) Melee.Draw(gameTime, spriteBatch);
+
         spriteBatch.Draw(
             texture: _texture,
             position: Position,

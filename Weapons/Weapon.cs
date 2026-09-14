@@ -12,7 +12,7 @@ public abstract class Weapon
 
     public bool IsReady => _timeSinceUse >= Cooldown;
 
-    public void Update(GameTime gameTime)
+    public virtual void Update(GameTime gameTime)
     {
         if (_timeSinceUse < float.MaxValue)
             _timeSinceUse += (float)gameTime.ElapsedGameTime.TotalSeconds;
